@@ -19,7 +19,7 @@ class CountriesModel {
   List<int>? latlng;
   bool? landlocked;
   List<String>? borders;
-  int? area;
+  double? area;
   Demonyms? demonyms;
   String? flag;
   Maps? maps;
@@ -72,7 +72,7 @@ class CountriesModel {
 
   CountriesModel.fromJson(Map<String, dynamic> json) {
     name = json['name'] != null ? Name.fromJson(json['name']) : null;
-    tld = json['tld'].cast<String>();
+    tld = json['tld']?.cast<String>();
     cca2 = json['cca2'];
     ccn3 = json['ccn3'];
     cca3 = json['cca3'];
@@ -84,7 +84,7 @@ class CountriesModel {
         ? Currencies.fromJson(json['currencies'])
         : null;
     idd = json['idd'] != null ? Idd.fromJson(json['idd']) : null;
-    capital = json['capital'].cast<String>();
+    capital = json['capital']?.cast<String>();
     altSpellings = json['altSpellings'].cast<String>();
     region = json['region'];
     subregion = json['subregion'];
@@ -96,7 +96,7 @@ class CountriesModel {
         : null;
     latlng = json['latlng'].cast<int>();
     landlocked = json['landlocked'];
-    borders = json['borders'].cast<String>();
+    borders = json['borders']?.cast<String>() ?? null;
     area = json['area'];
     demonyms = json['demonyms'] != null
         ? Demonyms.fromJson(json['demonyms'])
@@ -293,7 +293,7 @@ class Idd {
 
   Idd.fromJson(Map<String, dynamic> json) {
     root = json['root'];
-    suffixes = json['suffixes'].cast<String>();
+    suffixes = json['suffixes']?.cast<String>();
   }
 
   Map<String, dynamic> toJson() {
@@ -551,7 +551,7 @@ class Car {
   Car({this.signs, this.side});
 
   Car.fromJson(Map<String, dynamic> json) {
-    signs = json['signs'].cast<String>();
+    signs = json['signs']?.cast<String>();
     side = json['side'];
   }
 
@@ -610,7 +610,7 @@ class CapitalInfo {
   CapitalInfo({this.latlng});
 
   CapitalInfo.fromJson(Map<String, dynamic> json) {
-    latlng = json['latlng'].cast<double>();
+    latlng = json['latlng']?.cast<double>();
   }
 
   Map<String, dynamic> toJson() {
