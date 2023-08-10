@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 abstract class CountriesViewModel extends State<CountriesView>{
 
   late final CountriesService countriesService;
-  List<CountriesModel> resources =[];
+  List<CountriesModel> resources = [];
 
   @override
   void initState() {
